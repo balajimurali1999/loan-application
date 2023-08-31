@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import { Link, Routes, Route } from 'react-router-dom';
+import LoanForm from './components/LoanForm';
+import LoanList from './components/LoanList';
+import ViewLoan from './components/ViewLoan';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Link to='/applyLoan'>form</Link>
+      <Routes>
+        <Route path='/applyLoan' element={<LoanForm userData={{}}></LoanForm>}></Route>
+        <Route path='loans' element={<LoanList></LoanList>}></Route>
+        <Route path='loan/:id' element={<ViewLoan></ViewLoan>}></Route>
+      </Routes>
     </div>
   );
 }
